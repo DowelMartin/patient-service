@@ -1,13 +1,13 @@
-package zdrowie;
+package pl.wsiiz.patientservice.dto;
 
 public enum Status {
-        NIEZREALIZOWANA(false),
-        ZREALIZOWANA(true),
-        ZAREZERWOWANA(true);
+        UNREALIZED(false),
+        REALIZED(true),
+        RESERVED(true);
 
-        boolean doRezerwacji;
+        boolean forReservation;
 
-        private Status(boolean czyZarezertowany) {
-            doRezerwacji = doRezerwacji;
+        private Status(boolean isReserved) {
+            forReservation = isReserved;
         }
 }
