@@ -9,10 +9,19 @@ public class Drug {
     public Drug() {
     }
 
+    public Drug(String name) {
+        this.name = name;
+    }
+
     public Drug(String name, double price, boolean prescriptionNeeded, String manufacturer) {
         this.name = name;
         this.price = price;
         this.prescriptionNeeded = prescriptionNeeded;
+        this.manufacturer = manufacturer;
+    }
+
+    public Drug(String name, String manufacturer) {
+        this.name = name;
         this.manufacturer = manufacturer;
     }
 
