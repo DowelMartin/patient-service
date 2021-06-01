@@ -12,18 +12,20 @@ public class PatientEntity {
     private Long id;
     private String firstName;
     private String lastName;
+    private String pesel;
     protected PatientEntity() {}
 
-    public PatientEntity(String firstName, String lastName) {
+    public PatientEntity(String firstName, String lastName, String pesel) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.pesel = pesel;
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Patient[id=%d, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
+                "Patient[id=%d, firstName='%s', lastName='%s', pesel='%s']",
+                id, firstName, lastName, pesel);
     }
 
     public Long getId() {
@@ -36,5 +38,9 @@ public class PatientEntity {
 
     public String getLastName(){
         return lastName;
+    }
+
+    public String getPesel(){
+        return pesel;
     }
 }
