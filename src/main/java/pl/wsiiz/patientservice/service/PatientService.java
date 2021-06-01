@@ -6,6 +6,7 @@ import pl.wsiiz.patientservice.dto.Patient;
 import pl.wsiiz.patientservice.entity.PatientEntity;
 import pl.wsiiz.patientservice.jpa.PatientRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,5 +21,10 @@ public class PatientService {
             return new Patient(pat.getFirstName(), pat.getLastName(), pat.getPesel());
         }
         return new Patient("None", "None", "None");
+    }
+
+    public String findbyName (String name) {
+        List<PatientEntity> rs = patientRepository.findAllByLastName(name);
+        return rs.toString();
     }
 }
