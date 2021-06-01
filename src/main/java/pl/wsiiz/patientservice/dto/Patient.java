@@ -22,7 +22,7 @@ public class Patient extends Person {
 
     @Override
     public String toString() {
-            return "Patient{" + getName()+ " " + getLastName()+ " " +
+            return "Patient{" + getName()+ " " + getLastName()+ " " + getPesel() + " " +
             "familyDoctor=" + familyDoctor +
             ", referrals=" + referrals +
             ", examinations=" + examinations +
