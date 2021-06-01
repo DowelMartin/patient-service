@@ -38,6 +38,11 @@ public class Person {
         this.pesel = pesel;
     }
 
+    public Person(String name, String lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
+
     public String getName() {
         return name;
     }
