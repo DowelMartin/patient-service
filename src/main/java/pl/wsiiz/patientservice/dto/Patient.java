@@ -19,4 +19,15 @@ public class Patient extends Person {
     }
 
     public Patient(String name, String lastName) { super(name, lastName); }
+
+    @Override
+    public String toString() {
+            return "Patient{" + getName()+ " " + getLastName()+ " " +
+            "familyDoctor=" + familyDoctor +
+            ", referrals=" + referrals +
+            ", examinations=" + examinations +
+            ", drugs=" + drugs +
+            ", prescriptions=" + prescriptions +
+            '}';
+}
 }
