@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.wsiiz.patientservice.dto.Patient;
+import pl.wsiiz.patientservice.entity.PatientEntity;
 import pl.wsiiz.patientservice.service.PatientService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(value="/patient")
@@ -28,12 +31,6 @@ public class PatientController extends PatientService {
         return Integer.toString(yearNow-yearBirth);
     }
 
-    @GetMapping(path="/all")
-    @ResponseBody
-    public String patientId(@RequestParam Long idP){
-        return (patientService.findbyId(idP)).toString();
-    }
-
     @GetMapping(path="/names")
     @ResponseBody
     public String patientName(@RequestParam String lastName){
@@ -49,4 +46,34 @@ public class PatientController extends PatientService {
         model.addAttribute("pesel", (patient.getPesel()));
         return "patient.html";
     }
+
+    @GetMapping(path="/patientsall")
+    public String listPatients(final ModelMap model) throws Exception {
+        List<PatientEntity> allPatient = patientService.findAll();
+        model.addAttribute("patients", allPatient);
+        return  "patientAll.html";
+    }
+    @GetMapping(path="/all")
+    @ResponseBody
+    public String patientAll(){
+        return (patientService.findAll()).toString();
+    }
+
+    @GetMapping(path="/namesWeb")
+    public String patientNameWeb(final ModelMap model, @RequestParam String lastName){
+        List<PatientEntity>patientByName = patientService.findByLastName(lastName);
+        model.addAttribute("patientsByName", patientByName);
+        return "patientByName.html";
+    }
+    @GetMapping(path="/index0")
+    @ResponseBody
+    public String indexOld() {
+        return "Witamy w naszym systemie";
+    }
+
+    @GetMapping(path="/index")
+    public String index() {
+        return "index.html";
+    }
+
 }

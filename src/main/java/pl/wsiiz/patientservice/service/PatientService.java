@@ -27,4 +27,14 @@ public class PatientService {
         List<PatientEntity> rs = patientRepository.findAllByLastName(name);
         return rs.toString();
     }
+    public List<PatientEntity> findAll() {
+        List<PatientEntity> rs = patientRepository.findAll();
+        return rs;
+    }
+
+    public List<PatientEntity> findByLastName(String lastName) {
+        List<PatientEntity> rs = patientRepository.findByLastName(lastName);
+        return rs;
+    }
+
 }
