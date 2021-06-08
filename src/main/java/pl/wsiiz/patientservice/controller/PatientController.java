@@ -2,10 +2,12 @@ package pl.wsiiz.patientservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.wsiiz.patientservice.dto.Patient;
 import pl.wsiiz.patientservice.service.PatientService;
 
 @Controller
@@ -36,5 +38,15 @@ public class PatientController extends PatientService {
     @ResponseBody
     public String patientName(@RequestParam String lastName){
         return patientService.findbyName(lastName);
+    }
+
+    @RequestMapping(value = "/pacjent")
+    public String index(final ModelMap model, Long idP) {
+        model.addAttribute("nr", idP);
+        Patient patient = patientService.findbyId(idP);
+        model.addAttribute("imie", patient.getName());
+        model.addAttribute("nazwisko", (patient.getLastName()));
+        model.addAttribute("pesel", (patient.getPesel()));
+        return "patient.html";
     }
 }
