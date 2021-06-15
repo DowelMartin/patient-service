@@ -1,4 +1,4 @@
-package pl.wsiiz.patientservice.dto;
+package pl.wsiiz.patientservice.model;
 
 import java.util.Date;
 import java.util.List;

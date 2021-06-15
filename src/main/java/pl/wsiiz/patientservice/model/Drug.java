@@ -1,6 +1,12 @@
-package pl.wsiiz.patientservice.dto;
+package pl.wsiiz.patientservice.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Drug {
+    @Id
+    private Long id;
     private String name;
     private double price;
     private boolean prescriptionNeeded;

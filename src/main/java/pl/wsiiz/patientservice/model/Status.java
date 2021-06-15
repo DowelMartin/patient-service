@@ -1,4 +1,4 @@
-package pl.wsiiz.patientservice.dto;
+package pl.wsiiz.patientservice.model;
 
 public enum Status {
         UNREALIZED(false),
