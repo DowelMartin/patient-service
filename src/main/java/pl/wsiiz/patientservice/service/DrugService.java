@@ -1,22 +1,12 @@
 package pl.wsiiz.patientservice.service;
 
-import org.springframework.stereotype.Service;
-import pl.wsiiz.patientservice.dto.Drug;
+import pl.wsiiz.patientservice.model.Drug;
 
-@Service
-public class DrugService {
-    private Drug[] drugs = {new Drug("Ibuprom","Sanofi"),
-            new Drug("szczepionka","Astra"),
-            new Drug("Paracetamol","Polfa")};
+import java.util.List;
 
-    public Drug findDrug(String name){
-        for(Drug drug: drugs)
-        {
-            if(drug.getName().equals(name))
-            {
-                return drug;
-            }
-        }
-        return new Drug(name); //Throw new exception
-    }
+public interface DrugService {
+    public List<Drug> getAll();
+    public Drug getById(Long id);
+    public Drug saveOrUpdate(Drug drug);
+    public Boolean delete(Long id);
 }
