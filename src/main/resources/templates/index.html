@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
-    <title>Przychodnia</title>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout.html::head">
 </head>
 <body>
+<nav th:replace="layout.html::nav"></nav>
 <h1>Witamy w przychodni</h1>
 <ol>
     <li><a th:href="@{/drugs}">Leki</a></li>

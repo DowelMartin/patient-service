@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout.html::head">
+</head>
+<body>
+<nav th:replace="layout.html::nav"></nav>
+<table>
+    <tr>
+        <th th:each="field:${fields}" th:text="${field}"></th>
+    </tr>
+    <tr th:each="item : ${list}">
+        <td th:each="val : ${item}" th:text="${val}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
