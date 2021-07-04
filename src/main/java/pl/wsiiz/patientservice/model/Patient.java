@@ -1,33 +1,72 @@
 package pl.wsiiz.patientservice.model;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-public class Patient extends Person {
+@Entity
+public class Patient {
+    @Id
+    @GeneratedValue
     private int ID;
-    private Person familyDoctor;
-    private List<Prescription> prescriptions;
-    private List<Drug> drugs;
-    private List<Examination> examinations;
-    private List<Referral> referrals;
+    private String name;
+    private String lastName;
+    private String city;
+    private String pesel;
+    private String familyDoctor;
 
-    public Patient(String pesel) {
-        super(pesel);
+
+    public Patient() {
+        super();
     }
 
-    public Patient(String name, String lastName, String pesel) {
-        super(name, lastName, pesel);
+    public String getName() {
+        return name;
     }
 
-    public Patient(String name, String lastName) { super(name, lastName); }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    @Override
-    public String toString() {
-            return "Patient{" + getName()+ " " + getLastName()+ " " + getPesel() + " " +
-            "familyDoctor=" + familyDoctor +
-            ", referrals=" + referrals +
-            ", examinations=" + examinations +
-            ", drugs=" + drugs +
-            ", prescriptions=" + prescriptions +
-            '}';
-}
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getFamilyDoctor() {
+        return familyDoctor;
+    }
+
+    public void setFamilyDoctor(String familyDoctor) {
+        this.familyDoctor = familyDoctor;
+    }
+
+
 }

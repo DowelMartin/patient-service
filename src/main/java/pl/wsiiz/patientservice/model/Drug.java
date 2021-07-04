@@ -1,17 +1,22 @@
 package pl.wsiiz.patientservice.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 public class Drug {
     @Id
+    @GeneratedValue
     private Long id;
-    private String name;
-    private double price;
-    private boolean prescriptionNeeded;
-    private String manufacturer;
 
+    private String name;
+
+    private Double price;
+    private Boolean prescriptionNeeded;
+    private String manufacturer;
     public Drug() {
     }
 
@@ -29,6 +34,14 @@ public class Drug {
     public Drug(String name, String manufacturer) {
         this.name = name;
         this.manufacturer = manufacturer;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Boolean getPrescriptionNeeded() {
+        return prescriptionNeeded;
     }
 
     public String getName() {
@@ -61,5 +74,18 @@ public class Drug {
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Drug drug = (Drug) o;
+        return name.equals(drug.name) && price.equals(drug.price) && prescriptionNeeded.equals(drug.prescriptionNeeded) && manufacturer.equals(drug.manufacturer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, prescriptionNeeded, manufacturer);
     }
 }
