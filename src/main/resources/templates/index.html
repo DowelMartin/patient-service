@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout.html::head">
 </head>
 <body>
@@ -7,10 +8,10 @@
 <h1>Witamy w przychodni</h1>
 <ol>
     <li><a th:href="@{/drugs}">Leki</a></li>
-    <li><a th:href="@{/examinations}">Badania</a></li>
-    <li><a th:href="@{/patients}">Pacjenci</a></li>
-    <li><a th:href="@{/prescriptions}">Recepty</a></li>
-    <li><a th:href="@{/referrals}">Skierowania</a></li>
+    <li sec:authorize="isAuthenticated()"><a th:href="@{/examinations}">Badania</a></li>
+    <li sec:authorize="isAuthenticated()"><a th:href="@{/patients}">Pacjenci</a></li>
+    <li sec:authorize="isAuthenticated()"><a th:href="@{/prescriptions}">Recepty</a></li>
+    <li sec:authorize="isAuthenticated()"><a th:href="@{/referrals}">Skierowania</a></li>
 </ol>
 </body>
 </html>
