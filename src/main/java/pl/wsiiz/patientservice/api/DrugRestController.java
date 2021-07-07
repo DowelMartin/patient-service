@@ -24,4 +24,14 @@ public class DrugRestController {
     public void saveDrug(@RequestBody Drug newDrug){
         service.saveOrUpdate(newDrug);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        service.delete(id);
+    }
+
+    @PutMapping
+    public void update(@RequestBody Drug updatedDrug){
+        saveDrug(updatedDrug);
+    }
 }
