@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/","/drugs","/css/**").permitAll()
-                .antMatchers("/swagger-ui").hasRole("ADMIN")
+                .antMatchers("/swagger-ui/**").hasRole("ADMIN")
                 .antMatchers("/**").authenticated()
                 .and()
                 .formLogin()
