@@ -5,13 +5,18 @@
 </head>
 <body>
 <nav th:replace="layout.html::nav"></nav>
-<h1>Witamy w przychodni</h1>
-<ol>
-    <li><a th:href="@{/drugs}">Leki</a></li>
-    <li sec:authorize="isAuthenticated()"><a th:href="@{/examinations}">Badania</a></li>
-    <li sec:authorize="isAuthenticated()"><a th:href="@{/patients}">Pacjenci</a></li>
-    <li sec:authorize="isAuthenticated()"><a th:href="@{/prescriptions}">Recepty</a></li>
-    <li sec:authorize="isAuthenticated()"><a th:href="@{/referrals}">Skierowania</a></li>
-</ol>
+
+    <div class="card border-secondary mb-3 text-center" style="max-width: 70rem; margin: 0 auto; margin-top: 20px">
+        <div class="card-header"><h1 style="color: goldenrod">Witamy w przychodni</h1></div>
+        <div class="card-body text-light">
+                <a class="btn btn-dark col-6" th:href="@{/drugs}" role="button" style="margin: 5px;">Leki</a>
+                <a sec:authorize="isAuthenticated()" class="btn btn-dark col-6" th:href="@{/examinations}" role="button" style="margin: 5px;">Badania</a>
+                <a sec:authorize="isAuthenticated()" class="btn btn-dark col-6" th:href="@{/patients}" role="button" style="margin: 5px;">Pacjenci</a>
+                <a sec:authorize="isAuthenticated()" class="btn btn-dark col-6" th:href="@{/prescriptions}" role="button" style="margin: 5px;">Recepty</a>
+                <a sec:authorize="isAuthenticated()" class="btn btn-dark col-6" th:href="@{/referrals}" role="button" style="margin: 5px;">Skierowania</a>
+        </div>
+    </div>
+
+
 </body>
 </html>

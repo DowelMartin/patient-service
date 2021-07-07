@@ -1,5 +1,5 @@
 body {
-    background-color: darkcyan;
+    background-color: white;
 }
 h1 {
     color: red;
@@ -9,4 +9,7 @@ p {
 }
 table {
     border-color: #ff14fd;
+}
+body {
+    background-image: url("https://jooinn.com/images/background-27.png");
 }
