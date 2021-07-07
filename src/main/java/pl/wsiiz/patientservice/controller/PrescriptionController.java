@@ -7,6 +7,7 @@ import pl.wsiiz.patientservice.model.Prescription;
 import pl.wsiiz.patientservice.service.ExaminationService;
 import pl.wsiiz.patientservice.service.PrescriptionService;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -21,7 +22,7 @@ public class PrescriptionController extends BaseController<Prescription> {
     @Override
     public List<List<String>> list() {
         {
-            functionsMap.put("Data wydania", p->p.getReleaseDate().toString());
+            functionsMap.put("Data wydania", p-> new SimpleDateFormat("dd-MM-yyy").format(p.getReleaseDate()));
             functionsMap.put("Cena", p->String.valueOf(p.getPrice()));
             functionsMap.put("Dni to końca ważności", p->String.valueOf(p.getDaysToExpiry()));
             return convertForListing(service.getAll(), functionsMap);
