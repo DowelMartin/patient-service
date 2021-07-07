@@ -24,6 +24,8 @@ public class PatientController extends BaseController<Patient> {
             functionsMap.put("Imię", Patient::getName);
             functionsMap.put("Nazwisko", Patient::getLastName);
             functionsMap.put("Pesel", Patient::getPesel);
+            functionsMap.put("Miasto", Patient::getCity);
+            functionsMap.put("Lekarz rodzinny", Patient::getFamilyDoctor);
             return convertForListing(service.getAll(), functionsMap);
         }
     }
