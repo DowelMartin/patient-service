@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Patient {
     @Id
     @GeneratedValue
-    private int ID;
+    private Long ID;
     private String name;
     private String lastName;
     private String city;
@@ -52,11 +52,11 @@ public class Patient {
         this.pesel = pesel;
     }
 
-    public int getID() {
+    public Long getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(Long ID) {
         this.ID = ID;
     }
 

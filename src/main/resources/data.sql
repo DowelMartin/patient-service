@@ -1,0 +1,78 @@
+DROP TABLE IF EXISTS DRUG;
+CREATE TABLE DRUG(
+    ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    MANUFACTURER VARCHAR(255),
+    NAME VARCHAR(255),
+    PRESCRIPTION_NEEDED BOOLEAN,
+    PRICE DOUBLE
+);
+
+DROP TABLE IF EXISTS EXAMINATION;
+CREATE TABLE EXAMINATION(
+    ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    DATE TIMESTAMP,
+    DESCRIPTION VARCHAR(255),
+    DOCTOR VARCHAR(255),
+    EXAMINATION_PLACE VARCHAR(255),
+    TYPE VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS PATIENT;
+CREATE TABLE PATIENT(
+    ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    CITY VARCHAR(255),
+    FAMILY_DOCTOR VARCHAR(255),
+    LAST_NAME VARCHAR(255),
+    NAME VARCHAR(255),
+    PESEL VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS PRESCRIPTION;
+CREATE TABLE PRESCRIPTION(
+     ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     PRICE DOUBLE NOT NULL,
+     RELEASE_DATE TIMESTAMP
+);
+
+DROP TABLE IF EXISTS REFERRAL;
+CREATE TABLE REFERRAL(
+     ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     DOCTOR VARCHAR(255),
+     EXAMINATION_NAME VARCHAR(255),
+     EXPIRATION_DATE TIMESTAMP
+);
+
+INSERT INTO PATIENT (NAME, LAST_NAME, CITY, PESEL, FAMILY_DOCTOR)
+VALUES ('Jan', 'Kowalski', 'Warszawa', '76041227951', 'Jane Doe'),
+       ('Anna', 'Kowalska', 'Warszawa', '64101769789', 'Jane Doe'),
+       ('Maciej', 'Nowak', 'Rzeszow', '94081478393', 'Carl Vegan'),
+       ('Karol', 'Wegetarianin', 'Prusznik', '65022887396', 'Carl Vegan'),
+       ('Ireneusz', 'Ubyło', 'Gdansk', '51012189353', 'Jane Doe');
+
+INSERT INTO DRUG (MANUFACTURER, NAME, PRESCRIPTION_NEEDED, PRICE)
+VALUES ('Pfizer', 'Ibuprom', FALSE, 30.99),
+       ('Novartis', 'Rutinoscorbin', FALSE, 7.99),
+       ('Pfizer', 'APAP', FALSE, 5.49),
+       ('Sanofi', 'Strepsils', TRUE, 9.99),
+       ('Novartis', 'Gripex', TRUE, 21.49);
+
+INSERT INTO PRESCRIPTION (RELEASE_DATE, PRICE)
+VALUES (CAST(N'2021-07-01' AS Date), 243.39),
+       (CAST(N'2021-07-02' AS Date), 178.35),
+       (CAST(N'2021-07-03' AS Date), 89.90),
+       (CAST(N'2021-07-04' AS Date), 560.97),
+       (CAST(N'2021-07-05' AS Date), 10.10);
+
+INSERT INTO EXAMINATION (DATE, DESCRIPTION, TYPE, DOCTOR, EXAMINATION_PLACE)
+VALUES (CAST(N'2021-07-01' AS Date), 'Description1', 'Type1', 'Jane Doe', 'Rzeszow'),
+       (CAST(N'2021-07-02' AS Date), 'Description2', 'Type2', 'Carl Vegan', 'Prusznik'),
+       (CAST(N'2021-07-03' AS Date), 'Description3', 'Type3', 'Jane Doe', 'Warszawa'),
+       (CAST(N'2021-07-04' AS Date), 'Description4', 'Type4', 'Carl Vegan', 'Prusznik'),
+       (CAST(N'2021-07-05' AS Date), 'Description5', 'Type5', 'Jane Doe', 'Rzeszow');
+
+INSERT INTO REFERRAL (EXPIRATION_DATE, DOCTOR, EXAMINATION_NAME)
+VALUES (CAST(N'2021-07-01' AS Date), 'Jane Doe', 'ExaminationName1'),
+       (CAST(N'2021-07-02' AS Date), 'Carl Vegan', 'ExaminationName2'),
+       (CAST(N'2021-07-03' AS Date), 'Jane Doe', 'ExaminationName3'),
+       (CAST(N'2021-07-04' AS Date), 'Carl Vegan', 'ExaminationName4'),
+       (CAST(N'2021-07-05' AS Date), 'Jane Doe', 'ExaminationName5');
