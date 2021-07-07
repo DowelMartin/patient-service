@@ -20,6 +20,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
         </li>
+        <li sec:authorize="hasRole('ADMIN')" class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/swagger-ui/}">API</a>
+        </li>
       </ul>
     </div>
     <div>
