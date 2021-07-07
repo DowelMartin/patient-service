@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.wsiiz.patientservice.model.Examination;
 import pl.wsiiz.patientservice.service.ExaminationService;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -19,9 +20,11 @@ public class ExaminationController extends BaseController<Examination> {
     @Override
     public List<List<String>> list() {
         {
-            functionsMap.put("Data", exam->exam.getDate().toString());
+            functionsMap.put("Data", exam-> new SimpleDateFormat("dd-MM-yyy").format(exam.getDate()));
             functionsMap.put("Doktor", Examination::getDoctor);
             functionsMap.put("Opis", Examination::getDescription);
+            functionsMap.put("Typ", Examination::getType);
+            functionsMap.put("Miejsce", Examination::getExaminationPlace);
             return convertForListing(service.getAll(), functionsMap);
         }
     }
