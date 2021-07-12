@@ -1,17 +1,23 @@
-<!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Drug</title>
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout.html::head">
 </head>
 <body>
-<h3>Add a new drug:</h3>
-<form action="#" th:action="@{/drugs/newDrug}" th:object="${drug}" method="post">
-    <p>Name: <input type="text" th:field="*{name}" /></p>
-    <p>Manufacturer: <input type="text" th:field="*{manufacturer}" /></p>
-    <p>Price: <input type="number" th:field="*{price}" /></p>
-    <p>Prescription Needed: <input type="checkbox" th:field="*{prescriptionNeeded}" /></p>
-    <p><input type="submit" value="Submit" /></p>
-</form>
+<nav th:replace="layout.html::nav"></nav>
+
+<div class="card border-secondary mb-3 text-center" style="max-width: 25rem; margin: 0 auto; margin-top: 20px">
+    <div class="card-header">Add a new drug:</div>
+    <div class="card-body text-secondary">
+        <form action="#" th:action="@{/drugs/newDrug}" th:object="${drug}" method="post">
+            <p>Name: <input type="text" th:field="*{name}" required /></p>
+            <p>Manufacturer: <input type="text" th:field="*{manufacturer}" required /></p>
+            <p>Price: <input type="number" min = "0" step="0.01" th:field="*{price}" required /></p>
+            <p>Prescription Needed: <input type="checkbox" th:field="*{prescriptionNeeded}" /></p>
+            <p><input class = "btn btn-outline-success" type="submit" value="Submit" /></p>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
