@@ -18,11 +18,13 @@ public class Drug {
     public Drug() {
     }
 
+
+
     public Drug(String name) {
         this.name = name;
     }
 
-    public Drug(String name, double price, boolean prescriptionNeeded, String manufacturer) {
+    public Drug(String name, Double price, Boolean prescriptionNeeded, String manufacturer) {
         this.name = name;
         this.price = price;
         this.prescriptionNeeded = prescriptionNeeded;
@@ -50,19 +52,19 @@ public class Drug {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public boolean isPrescriptionNeeded() {
+    public Boolean isPrescriptionNeeded() {
         return prescriptionNeeded;
     }
 
-    public void setPrescriptionNeeded(boolean prescriptionNeeded) {
+    public void setPrescriptionNeeded(Boolean prescriptionNeeded) {
         this.prescriptionNeeded = prescriptionNeeded;
     }
 

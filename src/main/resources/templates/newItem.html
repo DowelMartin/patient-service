@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Drug</title>
+</head>
+<body>
+<h2>Newly created drug:</h2>
+<table>
+    <tr>
+        <th th:text="'Name: ' + ${name}"></th>
+    </tr>
+    <tr>
+        <th th:text="'Manufacturer: ' + ${manufacturer}"></th>
+    </tr>
+    <tr>
+        <th th:text="'Price: ' + ${price}"></th>
+    </tr>
+    <tr>
+    <th th:text="'Prescription Needed: ' + ${prescriptionNeeded}"></th>
+    </tr>
+</table>
+<a href="/drugs">Drugs</a>
+</body>
+</html>

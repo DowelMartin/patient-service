@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Drug</title>
+</head>
+<body>
+<h3>Add a new drug:</h3>
+<form action="#" th:action="@{/drugs/newDrug}" th:object="${drug}" method="post">
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>Manufacturer: <input type="text" th:field="*{manufacturer}" /></p>
+    <p>Price: <input type="number" th:field="*{price}" /></p>
+    <p>Prescription Needed: <input type="checkbox" th:field="*{prescriptionNeeded}" /></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>
